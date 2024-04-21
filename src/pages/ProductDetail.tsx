@@ -18,6 +18,7 @@ type ProductInfo = {
   images: string[];
 };
 
+// 상품 상세 페이지
 const ProductDetail: React.FC = () => {
   const navigate = useNavigate();
   const { productId } = useParams(); // 제품 ID
@@ -38,6 +39,7 @@ const ProductDetail: React.FC = () => {
   // 상품 정보 가져오기
   useEffect(() => {
     getProductInfo();
+    window.scrollTo(0, 0);
   }, []);
 
   // 이미지 왼쪽 스크롤
@@ -148,6 +150,9 @@ export const DetailThumbnail = styled.img`
   width: 100%;
   max-width: 700px;
   height: 400px;
+  object-fit: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 export const DetailMedia = styled.section`
   position: relative;
@@ -178,6 +183,9 @@ export const OtherImg = styled.img`
   width: 250px;
   height: 150px;
   border-radius: 12px;
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 export const LeftScroll = styled(LeftArrow)`
   position: absolute;
