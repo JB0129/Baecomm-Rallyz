@@ -18,6 +18,7 @@ type productType = {
 
 const ROOT_URL = `https://dummyjson.com`;
 
+// 상품 목록 페이지
 const ProductList: React.FC = () => {
   const navigate = useNavigate();
   const [productLists, setProductLists] = useState([]); // 상품 리스트
@@ -115,7 +116,7 @@ const ProductList: React.FC = () => {
           placeholder="검색어를 입력해주세요."
           value={inputValue}
           onChange={handleChangeInput}
-          onKeyDown={handleEnter} // up을 할지 down을 할지?
+          onKeyDown={handleEnter}
         />
         <SearchButton onClick={handleSearch}>검색</SearchButton>
       </SearchBox>
@@ -230,13 +231,14 @@ export const ProductItem = styled.li`
   }
 `;
 export const ProductImg = styled.img`
+  background-color: white;
   border-radius: 8px;
   width: 100%;
   height: 210px;
   margin: 0px 0px 5px 0px;
+  object-fit: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 `;
 export const ProductInfo = styled.div`
   width: 100%;
